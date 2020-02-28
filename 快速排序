@@ -1,0 +1,32 @@
+package aaaa;
+import java.util.Arrays;
+public class Test {
+    public static void main(String[] args) {
+        //快速排序
+        int[] a={9,2,5,4,3,6,7,8,1};
+        quickSort(a,0,a.length-1);
+        System.out.println(Arrays.toString(a));
+    }
+    //快速排序
+    public static void quickSort(int[] arr,int left,int right){
+        if(left>=right){
+            return;
+        }
+        int begin=left;
+        int end=right;
+        int pivot=arr[left];
+        while(begin<end){
+            while(begin<end&&arr[end]>pivot){
+                end--;
+            }
+            arr[begin]=arr[end];
+            while(begin<end&&arr[begin]<pivot){
+                begin++;
+            }
+            arr[end]=arr[begin];
+        }
+        arr[begin]=pivot;
+        quickSort(arr,left,begin);
+        quickSort(arr,begin+1,right);
+
+    }
