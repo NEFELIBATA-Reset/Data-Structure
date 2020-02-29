@@ -1,0 +1,46 @@
+
+import java.util.Arrays;
+
+public class Test {
+    public static void main(String[] args) {
+        int[] a={9,2,5,4,3,6,7,8,1};
+        //归并排序
+        mergeSort(a,0,a.length);
+        System.out.println(Arrays.toString(a));
+    }
+    //归并排序
+    public static void mergeSort(int[] arr,int low,int high){
+        if(low>=high-1){
+            return;
+        }
+        int mid=(low+high)/2;
+        mergeSort(arr,low,mid);
+        mergeSort(arr,mid,high);
+        merge(arr,low,mid,high);
+
+
+    }
+    public static void merge(int[] arr,int low,int mid,int high){
+
+        int[] temp=new int[high-low];
+        int i=low;
+        int j=mid;
+        int index=0;
+        while(i<mid&&j<high){
+            if(arr[i]<=arr[j]){
+                temp[index++]=arr[i++];
+            }else{
+                temp[index++]=arr[j++];
+            }
+        }
+        while(i<mid) {
+            temp[index++]=arr[i++];
+        }
+        while(j<high){
+            temp[index++]=arr[j++];
+        }
+        for(int k=0;k<temp.length;k++){
+            arr[k+low]=temp[k];
+        }
+
+    }
