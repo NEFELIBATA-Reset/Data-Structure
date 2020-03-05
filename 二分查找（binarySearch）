@@ -1,4 +1,4 @@
-package aaaa;
+//数组要有序
 public class Test {
     public static int binarySearch(int[] arr,int x){
         int begin=0;
