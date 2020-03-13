@@ -9,10 +9,14 @@ public class Test {
         System.out.println(Arrays.toString(a));
     }
     //插入排序
+    /*
+    有序   [0, i)
+     无序   [i, array.length)
+     用无序数组的第一个与有序数组最后一个比较，如果比他大，有序数组长度加1；反之，继续向有序数组遍历，找到合适的位置。这个过程一直到无序数组长度为0
+    */
     public static void insertSort0(int[] array) {
         for (int i = 1; i < array.length; i++) {
-            // 有序   [0, i)
-            // 无序   [i, array.length)
+            
             int key = array[i];
             int j;
             for (j = i - 1; j >= 0 && array[j] > key; j--) {
