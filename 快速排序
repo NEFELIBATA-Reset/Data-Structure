@@ -12,19 +12,24 @@ public class Test {
         if(left>=right){
             return;
         }
-        int begin=left;
-        int end=right;
-        int pivot=arr[left];
-        while(begin<end){
+        int begin=left;//一个从前遍历
+        int end=right;//一个从后遍历
+        int pivot=arr[left];//随机选一个数（一般从最左边开始）
+        //将大于它的放在右边，小于他的放左边
+        while(begin<end){   
+        //从后遍历，碰到比它小的，交换
             while(begin<end&&arr[end]>pivot){
                 end--;
             }
             arr[begin]=arr[end];
+          //从前遍历，碰到比它大的，交换
             while(begin<end&&arr[begin]<pivot){
                 begin++;
             }
             arr[end]=arr[begin];
         }
+        //将第一次遍历后交换的那个数作为一个边界，分为两个区间，递归调用
+        
         arr[begin]=pivot;
         quickSort(arr,left,begin);
         quickSort(arr,begin+1,right);
