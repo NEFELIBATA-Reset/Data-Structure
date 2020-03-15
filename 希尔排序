@@ -7,7 +7,8 @@ public class Test {
         shellSort(a);
         System.out.println(Arrays.toString(a));
     }
-    //希尔排序
+    //希尔排序（缩小增量排序）
+    //它把较大的数据集合分割成若干个小组（逻辑上分组），然后对每一个小组分别进行插入排序
     public static void shellSort(int[] arr){
         int gap=arr.length;
         while(true){
