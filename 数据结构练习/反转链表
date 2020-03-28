@@ -1,0 +1,34 @@
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+/*
+反转前：1->2->3->4->5->null
+反转后：5->4->3->2->1->null
+
+*/
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        ListNode cur=head;
+        //定义反转后链表
+        ListNode result=null;
+        //循环链表
+        while(cur!=null){
+            //node永远指向cur的下一个，用于记录原链表
+            ListNode node=cur.next;
+            //让cur.next指向result
+            cur.next=result;
+            //让result指向cur
+            result=cur;
+            //cur此时从node重新开始循环
+            cur=node;
+             
+        }
+        return result;
+    }
+}
