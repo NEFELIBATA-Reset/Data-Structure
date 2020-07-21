@@ -14,15 +14,21 @@ public class Test {
      无序   [i, array.length)
      用无序数组的第一个与有序数组最后一个比较，如果比他大，有序数组长度加1；反之，继续向有序数组遍历，找到合适的位置。这个过程一直到无序数组长度为0
     */
-    public static void insertSort0(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            
-            int key = array[i];
-            int j;
-            for (j = i - 1; j >= 0 && array[j] > key; j--) {
-                array[j + 1] = array[j];
+    public static void insertSort(int[] a){
+        //从第二个开始遍历
+        for(int i=1;i<a.length;i++){
+            //如果当前数字小于前一个
+            if(a[i]<a[i-1]){
+                //将当前的数字存储下来
+                int temp=a[i];
+                int j;
+                //遍历当前数字之前的数字，只要下标大于等于0并且大于当前数字，交换位置，一直向前遍历
+                for(j=i-1;j>=0&&a[j]>temp;j--){
+                    a[j+1]=a[j];
+                }
+                //将临时变量放在合适的位置
+                a[j+1]=temp;
             }
-            array[j + 1] = key;
         }
     }
     public static void insertSort(int[] arr){
